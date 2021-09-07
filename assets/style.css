@@ -1,5 +1,27 @@
-#start {
+p {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h2 {
+    text-align: center;
+}
+
+#startQuiz {
     display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 3px solid green;
+    border-radius: 10px;
+    box-shadow: 5px;
+    padding: 30px;
+}
+
+#timer {
+    display: none;
+
 }
 
 #questions {
@@ -9,9 +31,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    border: 1px solid;
+    border: 3px solid green;
     border-radius: 10px;
-    box-shadow: 5px;
+    box-shadow: 15px;
     padding: 30px;
 }
 
@@ -24,7 +46,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    border: 1px solid;
+    border: 3px solid green;
     border-radius: 10px;
     box-shadow: 5px;
     padding: 30px;
@@ -37,16 +59,30 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    border: 1px solid;
+    border: 3px solid green;
     border-radius: 10px;
     box-shadow: 5px;
     padding: 30px;
+}
+
+#questionText {
+    text-align: center;
 }
 
 /* Classes */
 .ansText {
     border: 3px solid green;
     border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.ansText:hover {
+    background-color: greenyellow;
+}
+
+.ansContainer {
+    
 }
 
 .btn {

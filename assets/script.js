@@ -5,18 +5,18 @@ var ansBtnThree = document.querySelector("#\\32 ");
 var ansBtnFour = document.querySelector("#\\33 ");
 var submitScore = document.querySelector("#submit");
 
-var questionArray = [{question:"questionOne",
-                    answers:["one","two","three","four"],
-                    correct: "one"},
-                    {question:"questionTwo",
-                    answers:["one","two","three","four"],
-                    correct: "two"},
-                    {question:"questionThree",
-                    answers:["one","two","three","four"],
-                    correct: "three"},
-                    {question:"questionFour",
-                    answers:["one","two","three","four"],
-                    correct: "four"}
+var questionArray = [{question:"What is the result of: console.log(4 * (2 + 2) / 8)?",
+                    answers:["5", "2", "3", "4"],
+                    correct: "2"},
+                    {question:"What is the correct structure of a for loop?",
+                    answers:["for (var i = 0; i < end; i++)", "for (i++; i < end; var i = 0)", "for (i < end; var i = 0; i++)", "for (var i = 0; i++; i < end)"],
+                    correct: "for (var i = 0; i < end; i++)"},
+                    {question:"What is the missing value?<br>function addStuff(val1, val2) {<br>var sum =  val1 + 3;<br>return sum + val2;<br>console.log(addStuff(x, y));<br>}<br>Output: 10",
+                    answers:["x = 4, y = 7","x = 8, y = 9","x = 4, y = 2","x = 2, y = 5"],
+                    correct: "x = 2, y = 5"},
+                    {question:"How do you store data locally?",
+                    answers:["localStorage(\"varName\", \"value\")","store.Local(\"varName\", \"value\")","localStorage.setItem(\"varName\", \"value\")","localStorage.save(\"varName\", \"value\")"],
+                    correct: "localStorage.setItem(\"varName\", \"value\")"}
 ];
 
 const timeout = async ms => new Promise(res => setTimeout(res, ms));
@@ -26,9 +26,10 @@ var nextQuestion = false;
 
 // !!! --- Bind this onLoad() --- !!!
 function timer() {
-    sec = 90;
+    document.getElementById("timer").style.display = "block";
+    sec = 100;
     var timer = setInterval(function() {
-        document.getElementById("timerDisplay").innerHTML = "00:" + sec;
+        document.getElementById("timerDisplay").innerHTML = "Time remaining: " + sec;
         sec--;
         if (sec < 0) {
             clearInterval(timer);
@@ -40,8 +41,10 @@ function timer() {
 
 function quizOver(result, score) {
     document.getElementById("questions").style.display = "none";
+    document.getElementById("timer").style.display = "none"
     if (result) {
         document.getElementById("resultWin").style.display = "block";
+
     }
     else {
         document.getElementById("resultLose").style.display = "block";
@@ -68,12 +71,11 @@ async function displayQuestions() {
         if (userAnswer !== questionArray[questionOrder[i]].correct)
             sec -= 10;
     }
-    quizOver(true);
+    quizOver(true, sec);
 }
 
 function getAnswer(event, choice) {
     userAnswer = document.querySelector("#\\3" + choice + " ").textContent;
-    console.log("USER ANSWER: " + userAnswer);
     nextQuestion = true;
 }
 

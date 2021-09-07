@@ -8,21 +8,22 @@
     </head>
     <body>
         <div id="timer">
-            <h2>Timer</h2>
-            <p id="timerDisplay">00:90</p>
+            <p id="timerDisplay">Time remaining: 90</p>
         </div>
         <div id="startQuiz">
             <h2>Javascript Quiz</h2>
             <p>Press button to start</p>
-            <button id="start">Start</button>
+            <button id="start" class="btn">Start</button>
         </div>
 
         <div id="questions">
             <p id="questionText"></p>
-            <button id="0" class="ansText"></button>
-            <button id="1" class="ansText"></button>
-            <button id="2" class="ansText"></button>
-            <button id="3" class="ansText"></button>
+            <div class="ansContainer">
+                <button id="0" class="ansText"></button>
+                <button id="1" class="ansText"></button>
+                <button id="2" class="ansText"></button>
+                <button id="3" class="ansText"></button>
+            </div>
         </div>
 
         <div id="resultWin">
@@ -30,7 +31,8 @@
             <p>Enter your name to save your score</p>
             <label for="name">Name: </label>
             <input type="text" id="name" name="name"><br>
-            <button id="submit" class="btn">Submit</button>
+            <button id="submit" class="btn">Submit</button><br>
+            <button id="start" class="btn">Start</button>
         </div>
 
         <div id="resultLose">
