@@ -2,8 +2,9 @@
 
 <html lang="en">
     <head>
-        <title>quiz-generator</title>
         <meta charset="UTF-8">
+        <title>quiz-generator</title>
+        <link rel="stylesheet" href=".\assets\style.css" />
     </head>
     <body>
         <div id="timer">
@@ -17,14 +18,25 @@
         </div>
 
         <div id="questions">
-            <div id="questionOne">
-                <p class="questionText"></p>
-                <button id="1"></button>
-                <button id="2"></button>
-                <button id="3"></button>
-                <button id="4"></button>
-            </div>
+            <p id="questionText"></p>
+            <button id="0" class="ansText"></button>
+            <button id="1" class="ansText"></button>
+            <button id="2" class="ansText"></button>
+            <button id="3" class="ansText"></button>
         </div>
+
+        <div id="resultWin">
+            <h2>You won!</h2>
+            <p>Enter your name to save your score</p>
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name"><br>
+            <button id="submit" class="btn">Submit</button>
+        </div>
+
+        <div id="resultLose">
+            <h2>Better luck next time...</h2>
+        </div>
+
     </body>
     <script src="./assets/script.js"></script>
 </html>

@@ -1,74 +1,97 @@
 var startButton = document.querySelector("#start");
+var ansBtnOne = document.querySelector("#\\30 ");
+var ansBtnTwo = document.querySelector("#\\31 ");
+var ansBtnThree = document.querySelector("#\\32 ");
+var ansBtnFour = document.querySelector("#\\33 ");
+var submitScore = document.querySelector("#submit");
 
-var questionArray = [{question:"question",
+var questionArray = [{question:"questionOne",
                     answers:["one","two","three","four"],
                     correct: "one"},
-                    {question:"question",
+                    {question:"questionTwo",
                     answers:["one","two","three","four"],
                     correct: "two"},
-                    {question:"question",
+                    {question:"questionThree",
                     answers:["one","two","three","four"],
-                    correct: "three"}
-
+                    correct: "three"},
+                    {question:"questionFour",
+                    answers:["one","two","three","four"],
+                    correct: "four"}
 ];
 
-// Bind this onLoad()
-function startQuiz() {
-    var sec = 90;
+const timeout = async ms => new Promise(res => setTimeout(res, ms));
+var sec = 0;
+var userAnswer = "";
+var nextQuestion = false;
+
+// !!! --- Bind this onLoad() --- !!!
+function timer() {
+    sec = 90;
     var timer = setInterval(function() {
         document.getElementById("timerDisplay").innerHTML = "00:" + sec;
         sec--;
         if (sec < 0) {
             clearInterval(timer);
-            quizOver();
+            quizOver(false, -1);
         }
-        if (!displayQuestion(1))
-            sec -= 10;
+
     }, 1000);
 }
 
-function quizOver() {
-    // Display the end of the quiz
+function quizOver(result, score) {
+    document.getElementById("questions").style.display = "none";
+    if (result) {
+        document.getElementById("resultWin").style.display = "block";
+    }
+    else {
+        document.getElementById("resultLose").style.display = "block";
+    }
+}
+
+async function awaitAnswer() {
+    while (nextQuestion === false) await timeout(50);
+    nextQuestion = false;
+}
+
+async function displayQuestions() {
+    document.getElementById("questions").style.display = "block";
+    var questionOrder = [0, 1, 2, 3];
+    shuffleArray(questionOrder);
+    for (var i = 0; i < questionArray.length; i++) {
+        document.getElementById("questionText").innerHTML = questionArray[questionOrder[i]].question;
+        shuffleArray(questionArray[questionOrder[i]].answers);
+        for (var j = 0; j < questionArray[questionOrder[i]].answers.length; j++)
+            document.getElementById(j.toString()).innerHTML = questionArray[questionOrder[i]].answers[j];
+        await awaitAnswer();
+        await timeout(250);
+        console.log("userAnswer:" + userAnswer + "\nCorrectAnswer: " + questionArray[questionOrder[i]].correct);
+        if (userAnswer !== questionArray[questionOrder[i]].correct)
+            sec -= 10;
+    }
+    quizOver(true);
+}
+
+function getAnswer(event, choice) {
+    userAnswer = document.querySelector("#\\3" + choice + " ").textContent;
+    console.log("USER ANSWER: " + userAnswer);
+    nextQuestion = true;
+}
+
+function quizStart(event) {
+    event.preventDefault();
+    document.getElementById("startQuiz").style.display = "none";
+    timer();
+    displayQuestions();
 
 }
 
-function quizStart() {
-    // Call this when button is pressed
-    startQuiz();
-}
-
-function displayQuestion(questionNum) {
-    // Display list of questions - make this random
-    // Define list of questions in HTML
-
-    // Display the question 1st
-    // for index i
-    // display question
-    // provide choices
-    // if selected choice text === ans text
-    //    return true/false
-
-    // pass integer to display questions
-
-    document.getElementById("questionText").innerHTML = questionArray[questionNums].question;
-    // Shuffle answers
-    shuffleArray(questionArray.answers);
-    // Display questions after shuffle
-    question.answers.forEach((element, i) => {
-        document.getElementById(i.toString()).innerHTML = element;
-    });
-    // Use JQuery to select the element picked
-    // What we want here is to be able to get the text the person
-    // clicked and then compare that to what is the right answer
-    
-}
-
-// Event listeners
 startButton.addEventListener("click", quizStart);
+ansBtnOne.addEventListener("click", getAnswer.bind(null, event, 0));
+ansBtnTwo.addEventListener("click", getAnswer.bind(null, event, 1));
+ansBtnThree.addEventListener("click", getAnswer.bind(null, event, 2));
+ansBtnFour.addEventListener("click", getAnswer.bind(null, event, 3));
+//submitScore.addEventListener("click", enterName);
 
-// Utility Functions
-
-// Durstenfeld shuffle array -- FROM:
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
