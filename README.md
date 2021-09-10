@@ -15,6 +15,7 @@ right answer the user gains 1 point for every wrong answer the user loses
 - On the website, click the start button. This will initiate the quiz and the timer.
 - Answer the questions and on completion save score if desired.
 - Images:
+
 ![alt text](/assets/images/screenshot1.PNG?raw=true)
 
 ![alt text](/assets/images/screenshot2.PNG?raw=true)
