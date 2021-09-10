@@ -1,3 +1,4 @@
+/* universal selectors */
 p {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -6,6 +7,7 @@ h2 {
     text-align: center;
 }
 
+/* id's */
 #startQuiz {
     display: block;
     position: absolute;
@@ -21,7 +23,10 @@ h2 {
 
 #timer {
     display: none;
+}
 
+#score {
+    display: none;
 }
 
 #questions {
@@ -36,8 +41,6 @@ h2 {
     box-shadow: 15px;
     padding: 30px;
 }
-
-
 
 #resultWin {
     display: none;
@@ -69,7 +72,7 @@ h2 {
     text-align: center;
 }
 
-/* Classes */
+/* classes */
 .ansText {
     border: 3px solid green;
     border-radius: 10px;
@@ -79,10 +82,6 @@ h2 {
 
 .ansText:hover {
     background-color: greenyellow;
-}
-
-.ansContainer {
-    
 }
 
 .btn {

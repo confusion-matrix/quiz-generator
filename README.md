@@ -1,15 +1,22 @@
 # quiz-generator
-UCR Bootcamp HW 4
+UCR Extenson Program HW4
 
-## HW DESCRITPION
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and my score
+## Description
+- Create a program that generates a quiz for the user.
+- The quiz keeps track of the users score and has a time limit. For every
+right answer the user gains 1 point for every wrong answer the user loses
+25 seconds from there remianing time.
+- The program ends when the users answers all questions with time remaining or the times runs out. When time remains the user is given the option to save there score in the local storage.
+
+## Installation
+- Available on:
+
+## Usage
+- On the website, click the start button. This will initiate the quiz and the timer.
+- Answer the questions and on completion save score if desired.
+- Images:
+![alt text](/assets/images/screenshot1.PNG?raw=true)
+
+![alt text](/assets/images/screenshot2.PNG?raw=true)
+
+![alt text](/assets/images/screenshot3.PNG?raw=true)

@@ -8,7 +8,10 @@
     </head>
     <body>
         <div id="timer">
-            <p id="timerDisplay">Time remaining: 90</p>
+            <p id="timerDisplay">Time remaining: 100</p>
+        </div>
+        <div id="score">
+            <p id="scoreDisplay">Score: 0</p>
         </div>
         <div id="startQuiz">
             <h2>Javascript Quiz</h2>
@@ -30,13 +33,14 @@
             <h2>You won!</h2>
             <p>Enter your name to save your score</p>
             <label for="name">Name: </label>
-            <input type="text" id="name" name="name"><br>
+            <input type="text" id="name" name="name"><br><br>
             <button id="submit" class="btn">Submit</button><br>
             <button id="start" class="btn">Start</button>
         </div>
 
         <div id="resultLose">
             <h2>Better luck next time...</h2>
+            <button id="tryAgain" class="btn">Try Again?</button>
         </div>
 
     </body>
