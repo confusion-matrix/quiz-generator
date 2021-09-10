@@ -9,7 +9,7 @@ right answer the user gains 1 point for every wrong answer the user loses
 - The program ends when the users answers all questions with time remaining or the times runs out. When time remains the user is given the option to save there score in the local storage.
 
 ## Installation
-- Available on:
+- Available on: https://confusion-matrix.github.io/quiz-generator/
 
 ## Usage
 - On the website, click the start button. This will initiate the quiz and the timer.
